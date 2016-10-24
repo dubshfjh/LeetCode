@@ -7,7 +7,7 @@
 7	8	9
 递归算法遇到较长的test case出现Time Limit Exceed，需要考虑迭代实现
  */
-本算法超时！！！！！
+本算法超时！！！！！只需要在移动时加入判断：下一个节点是否等于next字符即可
 class Solution {
 public:
 	bool existflag;
@@ -45,27 +45,27 @@ public:
 	    	}
     		if(row>0){//如果从pre节点不是朝下走到cur节点 && pre节点未在之前访问过，则本节点可以向(此时向上，将使用2次pre元素，error!)
 		    	nextindex = nodeindex-board[0].size();
-		    	if(visited[nextindex]==0){
+		    	if(visited[nextindex]==0 && board[row-1][col]==word[index+1]){//只在下一个字符匹配时，进行移动
     				backtrace(board,path,word,row-1,col,visited);
     			}
     		}
 
     		if(row<board.size()-1){//如果从pre节点不是向上走到cur节点 &&...，则本节点可以朝下走
 	    		nextindex = nodeindex+board[0].size();
-	    		if(visited[nextindex]==0){
+	    		if(visited[nextindex]==0 && board[row+1][col]==word[index+1]){
 	    			backtrace(board,path,word,row+1,col,visited);
 	    		}
     		}
 
     		if(col>0){//如果从pre节点不是向右走到cur节点 &&...，则本节点可以朝左走
     			nextindex=nodeindex-1;
-    			if(visited[nextindex]==0){
+    			if(visited[nextindex]==0 && board[row][col-1]==word[index+1]){
      				backtrace(board,path,word,row,col-1,visited);   				
     			}
     		}
     		if(col<board[row].size()-1){//如果从pre节点不是向左走到cur节点 &&...，则本节点可以朝右走
     			nextindex=nodeindex+1;
-    			if(visited[nextindex]==0){
+    			if(visited[nextindex]==0 && board[row][col+1]==word[index+1]){
      				backtrace(board,path,word,row,col+1,visited);   				
     			}
     		}
