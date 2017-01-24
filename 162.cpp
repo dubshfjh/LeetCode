@@ -47,7 +47,6 @@ public:
                 }
                 i++;//i再右移一次，变成递增序列的first元素
             }
-
             
         }
         for(int j=0;j<peaks.size();j++){
