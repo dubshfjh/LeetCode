@@ -1,3 +1,6 @@
+使用TriNode[26]实现Trie树结构，由于.代表任意字符，所以如果search(w)中的w[i]==.，则需要dfs检索当前层次每个非空节点作为root的字数；
+如果不为'.' ，则 1.w[i]对应的本层节点为null，则return false； 2.递归搜索w[i+1]
+
 class TriNode{
     boolean isWord;
     TriNode[] children;
