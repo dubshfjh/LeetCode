@@ -3,6 +3,7 @@
 3. num 在字节数组 byte[] 中的 index = (num / 4)，因为 2 bit 表示 1 个数字；在 byte[i] 中的 2 个bit下标定位，设 bitIndex = num % (8 / 2) = num & 3
 	其下标分别为 {2 * bitIndex, 1 + 2 * bitIndex}
    初始化byte[i] = 00000000，如果 bitIndex = 1，则设置当前byte的 bit[2], bit[3] 为 01，即00010000
+
 public class Solution {
 	static byte[] bitMap;
 	public static String getBit(int num) {
